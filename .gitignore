@@ -1,0 +1,15 @@
+node_modules/
+job-finder/
+data/
+uploads/
+exports/
+logs/
+.env
+.env.*
+*.log
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.wfp
+vlog_app_plan.md

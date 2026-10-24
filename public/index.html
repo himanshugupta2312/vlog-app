@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vlog App MVP</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">AI-assisted workflow</p>
+          <h1>Vlog App MVP</h1>
+        </div>
+        <div class="status-pill" id="healthStatus">Checking service…</div>
+      </header>
+
+      <div id="loaderOverlay" class="loader-overlay hidden" aria-live="polite" aria-busy="false">
+        <div class="loader-box">
+          <div class="loader-spinner"></div>
+          <p id="loaderText">Working…</p>
+        </div>
+      </div>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <h2>Create project</h2>
+          <form id="projectForm">
+            <label>
+              Project title
+              <input type="text" name="title" placeholder="Birding trip to the marsh" required />
+            </label>
+            <label>
+              Niche
+              <select name="niche">
+                <option value="travel">Travel</option>
+                <option value="wildlife">Wildlife</option>
+                <option value="birding">Birding</option>
+                <option value="documentary">Documentary</option>
+                <option value="educational">Educational</option>
+                <option value="lifestyle">Lifestyle</option>
+              </select>
+            </label>
+            <label>
+              Tone
+              <select name="tone">
+                <option value="cinematic">Cinematic</option>
+                <option value="calm">Calm</option>
+                <option value="energetic">Energetic</option>
+                <option value="documentary">Documentary</option>
+                <option value="fun">Fun</option>
+              </select>
+            </label>
+            <div class="two-col">
+              <label>
+                Target runtime (min)
+                <input type="number" name="targetRuntime" min="1" max="20" value="3" />
+              </label>
+              <label>
+                Audience
+                <input type="text" name="audience" value="general" />
+              </label>
+            </div>
+            <div class="two-col">
+              <label>
+                Aspect ratio
+                <select name="aspectRatio">
+                  <option value="16:9">16:9</option>
+                  <option value="9:16">9:16</option>
+                  <option value="1:1">1:1</option>
+                </select>
+              </label>
+              <label>
+                Resolution
+                <select name="resolution">
+                  <option value="1080p">1080p</option>
+                  <option value="4k">4K</option>
+                  <option value="vertical-short">Vertical short</option>
+                </select>
+              </label>
+            </div>
+            <button type="submit">Create project</button>
+          </form>
+        </section>
+
+        <section class="panel process-panel">
+          <h2>Media workflow</h2>
+          <div class="action-bar">
+            <label class="upload-field">
+              <span>Upload clips</span>
+              <input id="mediaUpload" type="file" multiple />
+            </label>
+            <button id="uploadBtn" class="secondary">Upload media</button>
+            <button id="generateBtn" class="primary">Generate storyboard</button>
+            <button id="exportBtn" class="secondary">Export video</button>
+          </div>
+
+          <div class="project-picker-wrap">
+            <label for="projectSelect">Active project</label>
+            <select id="projectSelect"></select>
+          </div>
+
+          <div id="projectOverview" class="project-overview empty-state">
+            Select a project to begin.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
